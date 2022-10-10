@@ -1,0 +1,71 @@
+<%- include('includes/head'); %>
+
+  <%- include('includes/nav'); %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-4">
+          <h1 class="text-center">Criar conta ou Entrar</h1>
+          <p class="text-center lead">Faça seu login ou Crie sua conta</p>
+
+          <%- include('includes/messages') %>
+
+          <div class="row">
+            <div class="col-lg my-4">
+              <h4>Faça seu cadastro</h4>
+              <p>Se você ainda não tem conta, preencha o formulário abaixo:</p>
+
+              <form class="form-cadastro" action="/login/register" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                <div class="mb-3">
+                  <label>Seu e-mail</label>
+                  <input type="email" class="form-control" name="email">
+                  <label class="cadastro-erros-email text-danger" for="email"></label>
+                </div>
+
+                <div class="mb-3">
+                  <label>Sua senha</label>
+                  <input type="password" class="form-control" name="password">
+                  <label class="cadastro-erros-senha text-danger" for="email"></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Criar minha conta</button>
+
+              </form>
+
+            </div>
+
+            <div class="col-lg my-4">
+              <h4>Faça seu login</h4>
+              <p>Se você já tem uma conta, faça login abaixo:</p>
+
+              <form class="form-login" action="/login/login" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                <div class="mb-3">
+                  <label>Seu e-mail</label>
+                  <input type="email" class="form-control" name="email">
+                  <label class="login-erros-email text-danger" for="email"></label>
+                </div>
+
+                <div class="mb-3">
+                  <label>Sua senha</label>
+                  <input type="password" class="form-control" name="password">
+                  <label class="login-erros-senha text-danger" for="email"></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Entrar</button>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+    <%- include('includes/footer'); %>
